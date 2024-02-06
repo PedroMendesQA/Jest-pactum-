@@ -1,0 +1,69 @@
+{
+    "schemaBreed": {
+        "type": "object",
+        "properties": {
+            "weight": {
+                "type": "object",
+                "properties": {
+                    "imperial": {
+                        "type": "string"
+                    },
+                    "metric": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "imperial",
+                    "metric"
+                ]
+            },
+            "height": {
+                "type": "object",
+                "properties": {
+                    "imperial": {
+                        "type": "string"
+                    },
+                    "metric": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "imperial",
+                    "metric"
+                ]
+            },
+            "id": {
+                "type": "integer"
+            },
+            "name": {
+                "type": "string"
+            },
+            "bred_for": {
+                "type": "string"
+            },
+            "breed_group": {
+                "type": "string"
+            },
+            "life_span": {
+                "type": "string"
+            },
+            "temperament": {
+                "type": "string"
+            },
+            "reference_image_id": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "weight",
+            "height",
+            "id",
+            "name",
+            "bred_for",
+            "breed_group",
+            "life_span",
+            "temperament",
+            "reference_image_id"
+        ]
+    }
+}
