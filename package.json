@@ -40,5 +40,8 @@
     "jest:config": "jest --config ./jest.config.js",
     "test": "npm run jest:config",
     "ci": "npm run clean && npm run format && npm run verify && npm run lint:report && npm run test"
+  },
+  "dependencies": {
+    "http-status-codes": "^2.3.0"
   }
 }
