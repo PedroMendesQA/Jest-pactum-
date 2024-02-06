@@ -4,10 +4,10 @@ import { StatusCodes } from 'http-status-codes';
 import { SimpleReporter } from '../report/simpleReporter';
 import { util } from '../helper/util';
 
-describe('Favorite breed', () => {
+describe('Vote breed', () => {
   dotenv.config();
   let imageId: import('pactum/src/models/Spec');
-  let favorite_id: import('pactum/src/models/Spec');
+  let vote_id: import('pactum/src/models/Spec');
   const reporter = SimpleReporter;
   const baseUrl = process.env.ENVIRONMENT;
   const token = process.env.TOKEN;
@@ -24,41 +24,43 @@ describe('Favorite breed', () => {
       .returns('reference_image_id');
   });
 
-  describe('Favourites One', () => {
-    it('favourite breed', async () => {
+  describe('Vote one Breed', () => {
+    it('Vote husky', async () => {
+      await sleep(2000);
       await pactum
         .spec()
-        .post(`${baseUrl}/favourites`)
+        .post(`${baseUrl}/votes`)
         .withHeaders('x-api-key', `${token}`)
         .withJson({
           image_id: `${imageId}`,
-          sub_id: `Test_User_${util.getRandomNumber()}`
+          sub_id: `Test_User_${util.getRandomNumber()}`,
+          value: 1
         })
-        .expectStatus(StatusCodes.OK)
+        .expectStatus(StatusCodes.CREATED)
         .expectBodyContains('id')
         .expectJsonMatch({ message: 'SUCCESS' });
     });
 
-    it('Delete favourite breed', async () => {
-      await sleep(5000);
-      favorite_id = await pactum
+    it('Delete vote breed', async () => {
+      await sleep(2000);
+      vote_id = await pactum
         .spec()
-        .post(`${baseUrl}/favourites`)
+        .post(`${baseUrl}/votes`)
         .withHeaders('x-api-key', `${token}`)
         .withJson({
           image_id: `${imageId}`,
-          sub_id: `Test_User_${util.getRandomNumber()}`
+          sub_id: `Test_User_${util.getRandomNumber()}`,
+          value: 1
         })
-        .expectStatus(StatusCodes.OK)
+        .expectStatus(StatusCodes.CREATED)
         .returns('id');
 
-      await sleep(10000);
+      await sleep(2000);
       await pactum
         .spec()
-        .delete(`${baseUrl}/favourites/${favorite_id}`)
+        .delete(`${baseUrl}/votes/${vote_id}`)
         .withHeaders('x-api-key', `${token}`)
-        .expectStatus(StatusCodes.OK)
-        .expectJsonMatch({ message: 'SUCCESS' });
+        .expectStatus(StatusCodes.OK);
     });
   });
 

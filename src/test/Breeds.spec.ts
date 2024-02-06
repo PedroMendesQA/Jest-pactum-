@@ -2,7 +2,6 @@ import pactum from 'pactum';
 import dotenv from 'dotenv';
 import { StatusCodes } from 'http-status-codes';
 import { SimpleReporter } from '../report/simpleReporter';
-import { expression } from 'pactum-matchers';
 
 describe('Search', () => {
   dotenv.config();
