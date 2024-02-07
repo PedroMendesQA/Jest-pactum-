@@ -7,6 +7,10 @@ on:
     branches: [ main ]
   schedule:   
     - cron: '0 12 * * *'
+  workflow_run:
+    workflows: [Upload data]
+    types:
+      - completed
 
 jobs:
   build:
