@@ -9,7 +9,6 @@ describe('Schema test', () => {
   const reporter = SimpleReporter;
   const baseUrl = process.env.ENVIRONMENT;
   const token = process.env.TOKEN;
-  const id = 226;
 
   beforeAll(async () => {
     pactum.reporter.add(reporter);
