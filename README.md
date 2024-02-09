@@ -27,4 +27,4 @@ Inside of the project folder run:
 After that you should see a `./output` folder with some `HTML` reports.
 
 ### Docs to Api under tests:
- -![The dog Api](https://www.thedogapi.com/)
+ - [The dog Api](https://www.thedogapi.com/)
